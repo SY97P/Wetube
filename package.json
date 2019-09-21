@@ -5,6 +5,15 @@
   "main": "index.js",
   "author": "SeYoung Park",
   "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
     "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.6.0",
+    "nodemon": "^1.19.2"
   }
 }
