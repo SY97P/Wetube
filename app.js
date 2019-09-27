@@ -22,15 +22,19 @@ import bodyParser from "body-parser";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+import { localsMiddleware } from "./middlewares";   
+//localsMiddleware가 routes를 미드웨어하고 있기 때문에 위쪽으로 올려주었다.
 import routes from "./routes";
 
 const app = express();
 
+app.use(helmet());  //모든 항목에 적용하기 위해서 위로 올렸다
+app.set("view engine", "pug");
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet());
 app.use(morgan("dev"));
+app.use(localsMiddleware);
 
 app.use(routes.home , globalRouter);
 app.use(routes.users , userRouter);
