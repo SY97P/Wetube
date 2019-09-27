@@ -1,3 +1,15 @@
+/* app.js파일 : application 관련 기능들을 담음
+1. express를 import
+2. express를 실행한 결과를 app상수로 선언
+3. middleware 추가 (Parser들과 helmet, morgan ... )
+ - cookieParser : cookie를 전달받아서 사용할 수 있도록 해주는 미들웨어
+ - bodyParser   : 사용자가 웹사이트로 전달하는 정보들을 검사하는 미들웨어
+                  아바타의 사진이나 비디오를 업로드할 때, 제목이나 댓글 같은 정보를 
+                  form에 담아서 보낸다.
+ - helmet       : application이 더 안전하도록 해주는 보안 미들웨어
+ - morgan       : application에서 발생하는 모든일을 기록
+*/
+
 import express from "express";
 import morgan from "morgan";
 //앞의 morgan은 변수로 이름을 원하는대로 바꿀 수 있다.
