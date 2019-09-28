@@ -2,15 +2,13 @@
 // 다른 pug파일에서 이 파일을 extends하면 굳이 html 소스를 복붙하지 않아도
 // 알아서 복사가 된 채로 시작된다.
 // 굳이 같은 코드를 파일마다 새로 쓰지 않아도 된다는 장점이 있다.
-
 // tap이나 띄어쓰기 같은 것으로 mother와 children을 나눈다.
 // 들여쓰기를 돌아갔다가 다시 하면 새로운 파션이 된다.
-
 doctype html
 html
     head
         link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU", crossorigin="anonymous")
-        title   | #{siteName}
+        title #{pageTitle} | #{siteName}
     body
         header
             h1 WeTube
@@ -19,4 +17,4 @@ html
             block content
         footer
             span &copy; Wetube
-        include ../partials/footer
+        include ../partials/footer 

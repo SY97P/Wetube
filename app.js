@@ -19,12 +19,12 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 //다른 import들은 애초에 default이기 때문에 여기서 내맘대로 이름을 바꿔서 쓸 수 있지만
 //userRouter는 router.js에서 export const userRouter로 선언했기 때문에 여기서 이렇게 app.js에서 사용해야한다.
+import { localsMiddleware } from "./middlewares";   
+import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
-import { localsMiddleware } from "./middlewares";   
 //localsMiddleware가 routes를 미드웨어하고 있기 때문에 위쪽으로 올려주었다.
-import routes from "./routes";
 
 const app = express();
 
