@@ -3,17 +3,30 @@ MVC의 V부분이다.
 router의 모든 로직 (함수 선언)들을 여기에 있다.
 그 템플릿들을 전역으로 쓸 수 있도록 여기서 처리해준다
 */
-export const home = (req, res) => res.render("home", {pageTitle: "Home"});
+import { videos } from "../db";
+import routes from "../routes";
+
+export const home = (req, res) => {
+  res.render("home", { pageTitle: "Home", videos });
+};
 //pug파일을 사용하는 방법으로 res.send -> res.render("파일명")
 
 export const search = (req, res) => {
   const {
-    query : { term: searchingBy }
+    query : { term: searchingBy}
   } = req;
-  res.render("search", {pageTitle: "Search", searchingBy });
+  res.render("search", {pageTitle: "Search", searchingBy, videos });
 };
 
-export const upload = (req, res) => res.render("upload", {pageTitle: "Upload" });
+export const getUpload = (req, res) => res.render("upload", {pageTitle: "Upload" });
+export const postUpload = (req, res) => {
+  const {
+    body : { file, title, description }
+  } = req;
+  // To do: Upload and save video
+  res.redirect(routes.videoDetail(324393));
+};
+
 export const videoDetail = (req, res) => res.render("videoDetail", {pageTitle: "Video Detail" });
 export const editVideo = (req, res) => res.render("editVideo", {pageTitle: "Edit Video" });
 export const deleteVideo = (req, res) => res.render("deleteVideo", {pageTitle: "Delete Video" });
